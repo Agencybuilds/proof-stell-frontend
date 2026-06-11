@@ -27,16 +27,21 @@ interface Achievement {
   rarity: "common" | "rare" | "epic" | "legendary";
 }
 
+// Mock leaderboard data used for UI development and testing
+// Represents a ranked list of players with gamification metrics
 const mockPlayers: Player[] = [
   {
     id: "1",
     rank: 1,
-    previousRank: 2,
+    previousRank: 2, // used to show movement (up/down in leaderboard)
     name: "MoleKing",
     level: 24,
     points: 2456,
     avatar: "👑",
     wallet: "0x1234...5678",
+
+    // Achievements earned by this player
+    // Each achievement has metadata for rarity-based styling
     achievements: [
       {
         id: "1",
@@ -60,10 +65,12 @@ const mockPlayers: Player[] = [
         rarity: "rare",
       },
     ],
-    streak: 12,
-    gamesPlayed: 156,
-    winRate: 78,
+
+    streak: 12,        // current active win streak
+    gamesPlayed: 156,  // total matches played
+    winRate: 78,       // percentage win rate
   },
+
   {
     id: "2",
     rank: 2,
@@ -73,6 +80,7 @@ const mockPlayers: Player[] = [
     points: 2189,
     avatar: "🎭",
     wallet: "0x8765...4321",
+
     achievements: [
       {
         id: "4",
@@ -89,10 +97,12 @@ const mockPlayers: Player[] = [
         rarity: "rare",
       },
     ],
+
     streak: 8,
     gamesPlayed: 134,
     winRate: 82,
   },
+
   {
     id: "3",
     rank: 3,
@@ -102,6 +112,7 @@ const mockPlayers: Player[] = [
     points: 1987,
     avatar: "🔥",
     wallet: "0x9999...0000",
+
     achievements: [
       {
         id: "6",
@@ -118,10 +129,12 @@ const mockPlayers: Player[] = [
         rarity: "common",
       },
     ],
+
     streak: 5,
     gamesPlayed: 198,
     winRate: 65,
   },
+
   {
     id: "4",
     rank: 4,
@@ -131,6 +144,7 @@ const mockPlayers: Player[] = [
     points: 1845,
     avatar: "💎",
     wallet: "0xaaaa...bbbb",
+
     achievements: [
       {
         id: "8",
@@ -140,10 +154,12 @@ const mockPlayers: Player[] = [
         rarity: "rare",
       },
     ],
+
     streak: 3,
     gamesPlayed: 89,
     winRate: 71,
   },
+
   {
     id: "5",
     rank: 5,
@@ -153,6 +169,7 @@ const mockPlayers: Player[] = [
     points: 1756,
     avatar: "🎮",
     wallet: "0xcccc...dddd",
+
     achievements: [
       {
         id: "9",
@@ -162,6 +179,7 @@ const mockPlayers: Player[] = [
         rarity: "common",
       },
     ],
+
     streak: 2,
     gamesPlayed: 67,
     winRate: 68,
