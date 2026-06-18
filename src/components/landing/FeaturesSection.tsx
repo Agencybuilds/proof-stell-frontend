@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
+import styles from "./FeaturesSection.module.css";
 
 const features = [
   {
@@ -71,116 +72,34 @@ const FeatureCard = ({
       transition={{ duration: 0.5, delay: index * 0.08, ease: "easeOut" }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      style={{
-        background: hovered ? "rgba(0,20,14,0.95)" : "rgba(0,12,8,0.6)",
-        border: `1px solid ${hovered ? "rgba(0,220,150,0.35)" : "rgba(0,220,150,0.1)"}`,
-        borderRadius: 3,
-        padding: "28px 28px 24px",
-        position: "relative",
-        overflow: "hidden",
-        cursor: "default",
-        transition: "all 0.3s ease",
-        boxShadow: hovered ? "0 8px 40px rgba(0,220,150,0.08)" : "none",
-        display: "flex",
-        flexDirection: "column",
-        gap: 16,
-      }}
+      className={`${styles.card} ${hovered ? styles.cardHover : styles.cardDefault}`}
     >
       {/* Corner accent top-right */}
-      <div
-        style={{
-          position: "absolute",
-          top: 0,
-          right: 0,
-          width: 40,
-          height: 40,
-          borderTop: `1.5px solid ${hovered ? "#00dc96" : "rgba(0,220,150,0.2)"}`,
-          borderRight: `1.5px solid ${hovered ? "#00dc96" : "rgba(0,220,150,0.2)"}`,
-          transition: "border-color 0.3s",
-        }}
-      />
+      <div className={`${styles.cardCorner} ${hovered ? styles.cardCornerHover : styles.cardCornerDefault}`} />
 
       {/* Bottom glow on hover */}
-      {hovered && (
-        <div
-          style={{
-            position: "absolute",
-            bottom: 0,
-            left: 0,
-            right: 0,
-            height: 1,
-            background: "linear-gradient(90deg, transparent, #00dc96, transparent)",
-          }}
-        />
-      )}
+      {hovered && <div className={styles.cardBottomGlow} />}
 
       {/* Header row */}
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-        <span
-          style={{
-            fontFamily: "'Space Mono', monospace",
-            fontSize: "0.62rem",
-            letterSpacing: "0.18em",
-            color: "#00dc96",
-            background: "rgba(0,220,150,0.08)",
-            border: "1px solid rgba(0,220,150,0.2)",
-            padding: "3px 10px",
-            borderRadius: 1,
-          }}
-        >
+      <div className={styles.cardHeaderFlex}>
+        <span className={styles.cardTag}>
           {feature.tag}
         </span>
-        <span
-          style={{
-            fontFamily: "'Space Mono', monospace",
-            fontSize: "0.65rem",
-            color: "rgba(0,220,150,0.25)",
-            letterSpacing: "0.05em",
-          }}
-        >
+        <span className={styles.cardId}>
           /{feature.id}
         </span>
       </div>
 
       {/* Title */}
-      <h3
-        style={{
-          fontFamily: "'Space Mono', monospace",
-          fontSize: "0.95rem",
-          fontWeight: 700,
-          color: hovered ? "#e8f5f0" : "#a0c4b8",
-          margin: 0,
-          lineHeight: 1.35,
-          transition: "color 0.3s",
-          letterSpacing: "-0.01em",
-        }}
-      >
+      <h3 className={`${styles.cardTitle} ${hovered ? styles.cardTitleHover : styles.cardTitleDefault}`}>
         {feature.title}
       </h3>
 
       {/* Divider */}
-      <div
-        style={{
-          height: 1,
-          background: hovered
-            ? "linear-gradient(90deg, #00dc96, transparent)"
-            : "rgba(0,220,150,0.08)",
-          transition: "background 0.4s",
-        }}
-      />
+      <div className={`${styles.cardDivider} ${hovered ? styles.cardDividerHover : styles.cardDividerDefault}`} />
 
       {/* Description */}
-      <p
-        style={{
-          fontFamily: "'DM Mono', monospace",
-          fontSize: "0.78rem",
-          color: "#4a7060",
-          lineHeight: 1.75,
-          margin: 0,
-          transition: "color 0.3s",
-          ...(hovered ? { color: "#6a9a88" } : {}),
-        }}
-      >
+      <p className={`${styles.cardDesc} ${hovered ? styles.cardDescHover : styles.cardDescDefault}`}>
         {feature.description}
       </p>
     </motion.div>
@@ -192,34 +111,11 @@ const FeaturesSection: React.FC = () => {
   const headerInView = useInView(headerRef, { once: true });
 
   return (
-    <section
-      id="features"
-      style={{
-        background: "#060a10",
-        padding: "96px 24px",
-        position: "relative",
-        fontFamily: "'DM Mono', monospace",
-      }}
-    >
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Mono:wght@400;500&display=swap');
-      `}</style>
-
+    <section id="features" className={styles.section}>
       {/* Grid bg */}
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          backgroundImage: `
-            linear-gradient(rgba(0,220,150,0.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(0,220,150,0.03) 1px, transparent 1px)
-          `,
-          backgroundSize: "48px 48px",
-          pointerEvents: "none",
-        }}
-      />
+      <div className={styles.gridOverlay} />
 
-      <div style={{ maxWidth: 1100, margin: "0 auto", position: "relative" }}>
+      <div className={styles.contentWrapper}>
         {/* Section header */}
         <motion.div
           ref={headerRef}
@@ -229,71 +125,26 @@ const FeaturesSection: React.FC = () => {
           style={{ marginBottom: 64 }}
         >
           {/* Label */}
-          <div
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 8,
-              marginBottom: 20,
-            }}
-          >
-            <div
-              style={{
-                width: 24,
-                height: 1,
-                background: "#00dc96",
-                boxShadow: "0 0 8px #00dc96",
-              }}
-            />
-            <span
-              style={{
-                fontFamily: "'Space Mono', monospace",
-                fontSize: "0.65rem",
-                letterSpacing: "0.2em",
-                color: "#00dc96",
-              }}
-            >
+          <div className={styles.headerLabelWrapper}>
+            <div className={styles.headerLabelLine} />
+            <span className={styles.headerLabelText}>
               PLATFORM CAPABILITIES
             </span>
           </div>
 
-          <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap", gap: 16 }}>
-            <h2
-              style={{
-                fontFamily: "'Space Mono', monospace",
-                fontSize: "clamp(1.8rem, 3.5vw, 2.6rem)",
-                fontWeight: 700,
-                color: "#e8f5f0",
-                margin: 0,
-                lineHeight: 1.15,
-                letterSpacing: "-0.02em",
-              }}
-            >
+          <div className={styles.headerFlex}>
+            <h2 className={styles.headline}>
               Cryptographic Trust,<br />
               <span style={{ color: "#00dc96" }}>Without the Middleman.</span>
             </h2>
-            <p
-              style={{
-                color: "#3a6050",
-                fontSize: "0.8rem",
-                maxWidth: 320,
-                lineHeight: 1.7,
-                margin: 0,
-              }}
-            >
+            <p className={styles.subheadline}>
               Six core capabilities anchored on Stellar Soroban — from credential issuance to instant on-chain revocation.
             </p>
           </div>
         </motion.div>
 
         {/* Feature grid */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(310px, 1fr))",
-            gap: 16,
-          }}
-        >
+        <div className={styles.grid}>
           {features.map((f, i) => (
             <FeatureCard key={f.id} feature={f} index={i} />
           ))}
@@ -305,12 +156,7 @@ const FeaturesSection: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          style={{
-            marginTop: 56,
-            display: "flex",
-            gap: 1,
-            flexWrap: "wrap",
-          }}
+          className={styles.statsRow}
         >
           {[
             { label: "Contracts Deployed", value: "4" },
@@ -320,35 +166,12 @@ const FeaturesSection: React.FC = () => {
           ].map((s, i) => (
             <div
               key={s.label}
-              style={{
-                flex: "1 1 160px",
-                padding: "20px 24px",
-                border: "1px solid rgba(0,220,150,0.1)",
-                background: "rgba(0,12,8,0.4)",
-                ...(i === 0 ? { borderRadius: "3px 0 0 3px" } : {}),
-                ...(i === 3 ? { borderRadius: "0 3px 3px 0" } : {}),
-              }}
+              className={`${styles.statItem} ${i === 0 ? styles.statItemFirst : ''} ${i === 3 ? styles.statItemLast : ''}`}
             >
-              <div
-                style={{
-                  fontFamily: "'Space Mono', monospace",
-                  fontSize: "1.4rem",
-                  fontWeight: 700,
-                  color: "#e8f5f0",
-                  letterSpacing: "-0.02em",
-                }}
-              >
+              <div className={styles.statValue}>
                 {s.value}
               </div>
-              <div
-                style={{
-                  fontFamily: "'DM Mono', monospace",
-                  fontSize: "0.65rem",
-                  color: "#3a6050",
-                  letterSpacing: "0.1em",
-                  marginTop: 4,
-                }}
-              >
+              <div className={styles.statLabel}>
                 {s.label.toUpperCase()}
               </div>
             </div>
