@@ -1,0 +1,235 @@
+.section {
+  background: #060a10;
+  padding: 96px 24px;
+  position: relative;
+  font-family: 'DM Mono', monospace;
+}
+
+.gridOverlay {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgb(0,220,150,0.03) 1px, transparent 1px),
+                    linear-gradient(90deg, rgb(0,220,150,0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+}
+
+.contentWrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.headerLabelWrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.headerLabelLine {
+  width: 24px;
+  height: 1px;
+  background: #00dc96;
+  box-shadow: 0 0 8px #00dc96;
+}
+
+.headerLabelText {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: #00dc96;
+}
+
+.headerFlex {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.headline {
+  font-family: 'Space Mono', monospace;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 700;
+  color: #e8f5f0;
+  margin: 0;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.subheadline {
+  color: #3a6050;
+  font-size: 0.8rem;
+  max-width: 320px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  border-radius: 3px;
+  padding: 28px 28px 24px;
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cardDefault {
+  background: rgb(0,12,8,0.6);
+  border: 1px solid rgb(0,220,150,0.1);
+  box-shadow: none;
+}
+
+.cardHover {
+  background: rgb(0,20,14,0.95);
+  border: 1px solid rgb(0,220,150,0.35);
+  box-shadow: 0 8px 40px rgb(0,220,150,0.08);
+}
+
+.cardCorner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  transition: border-color 0.3s;
+}
+
+.cardCornerDefault {
+  border-top: 1.5px solid rgb(0,220,150,0.2);
+  border-right: 1.5px solid rgb(0,220,150,0.2);
+}
+
+.cardCornerHover {
+  border-top: 1.5px solid #00dc96;
+  border-right: 1.5px solid #00dc96;
+}
+
+.cardBottomGlow {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #00dc96, transparent);
+}
+
+.cardHeaderFlex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cardTag {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  color: #00dc96;
+  background: rgb(0,220,150,0.08);
+  border: 1px solid rgb(0,220,150,0.2);
+  padding: 3px 10px;
+  border-radius: 1px;
+}
+
+.cardId {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  color: rgb(0,220,150,0.25);
+  letter-spacing: 0.05em;
+}
+
+.cardTitle {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.35;
+  transition: color 0.3s;
+  letter-spacing: -0.01em;
+}
+
+.cardTitleDefault {
+  color: #a0c4b8;
+}
+
+.cardTitleHover {
+  color: #e8f5f0;
+}
+
+.cardDivider {
+  height: 1px;
+  transition: background 0.4s;
+}
+
+.cardDividerDefault {
+  background: rgb(0,220,150,0.08);
+}
+
+.cardDividerHover {
+  background: linear-gradient(90deg, #00dc96, transparent);
+}
+
+.cardDesc {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.78rem;
+  line-height: 1.75;
+  margin: 0;
+  transition: color 0.3s;
+}
+
+.cardDescDefault {
+  color: #4a7060;
+}
+
+.cardDescHover {
+  color: #6a9a88;
+}
+
+.statsRow {
+  margin-top: 56px;
+  display: flex;
+  gap: 1px;
+  flex-wrap: wrap;
+}
+
+.statItem {
+  flex: 1 1 160px;
+  padding: 20px 24px;
+  border: 1px solid rgb(0,220,150,0.1);
+  background: rgb(0,12,8,0.4);
+}
+
+.statItemFirst {
+  border-radius: 3px 0 0 3px;
+}
+
+.statItemLast {
+  border-radius: 0 3px 3px 0;
+}
+
+.statValue {
+  font-family: 'Space Mono', monospace;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #e8f5f0;
+  letter-spacing: -0.02em;
+}
+
+.statLabel {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  color: #3a6050;
+  letter-spacing: 0.1em;
+  margin-top: 4px;
+}

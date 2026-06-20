@@ -1,0 +1,302 @@
+.section {
+  background: #060a10;
+  font-family: 'DM Mono', 'Courier New', monospace;
+}
+
+.gridOverlay {
+  background-image: linear-gradient(rgb(0,220,150,0.04) 1px, transparent 1px),
+                    linear-gradient(90deg, rgb(0,220,150,0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.bracketTopLeft {
+  width: 32px;
+  height: 32px;
+  border-top: 2px solid #00dc96;
+  border-left: 2px solid #00dc96;
+}
+
+.bracketBottomRight {
+  width: 32px;
+  height: 32px;
+  border-bottom: 2px solid #00dc96;
+  border-right: 2px solid #00dc96;
+}
+
+.radialGlow {
+  top: -10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80vw;
+  height: 60vh;
+  background: radial-gradient(ellipse at center, rgb(0,180,120,0.10) 0%, transparent 70%);
+}
+
+.pillBadge {
+  border: 1px solid rgb(0,220,150,0.3);
+  border-radius: 2px;
+  padding: 5px 14px;
+  background: rgb(0,220,150,0.06);
+}
+
+.pillDot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #00dc96;
+  box-shadow: 0 0 8px #00dc96;
+  animation: pulse 2s infinite;
+}
+
+.pillText {
+  color: #00dc96;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  font-weight: 600;
+}
+
+.headline {
+  font-family: 'Space Mono', 'DM Mono', monospace;
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 700;
+  color: #e8f5f0;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.subheadline {
+  margin-top: 1.5rem;
+  color: #7a9e92;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  max-width: 480px;
+  font-family: 'DM Mono', monospace;
+}
+
+.btnPrimary {
+  background: #00dc96;
+  color: #060a10;
+  border: none;
+  border-radius: 2px;
+  padding: 14px 32px;
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btnPrimary:hover {
+  background: #00f5ab;
+  box-shadow: 0 0 24px rgb(0,220,150,0.4);
+}
+
+.btnSecondary {
+  background: transparent;
+  color: #00dc96;
+  border: 1px solid rgb(0,220,150,0.35);
+  border-radius: 2px;
+  padding: 14px 32px;
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btnSecondary:hover {
+  border-color: #00dc96;
+  background: rgb(0,220,150,0.07);
+}
+
+.statValue {
+  font-family: 'Space Mono', monospace;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #e8f5f0;
+  letter-spacing: -0.02em;
+}
+
+.statLabel {
+  color: #4a6b60;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  margin-top: 2px;
+}
+
+.card {
+  border: 1px solid rgb(0,220,150,0.18);
+  border-radius: 4px;
+  background: rgb(0,15,10,0.7);
+  backdrop-filter: blur(12px);
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cardTopLabel {
+  color: #4a6b60;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+}
+
+.uploadArea {
+  border: 1px dashed rgb(0,220,150,0.25);
+  border-radius: 3px;
+  padding: 18px;
+  margin-bottom: 24px;
+  background: rgb(0,220,150,0.03);
+  text-align: center;
+}
+
+.uploadFileName {
+  color: #e8f5f0;
+  font-size: 0.78rem;
+  font-family: 'Space Mono', monospace;
+}
+
+.uploadFileHash {
+  color: #4a6b60;
+  font-size: 0.65rem;
+  margin-top: 4px;
+}
+
+.stepIcon {
+  width: 28px;
+  height: 28px;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.4s;
+}
+
+.stepIconDone {
+  border: 1px solid #00dc96;
+  background: rgb(0,220,150,0.15);
+  box-shadow: 0 0 10px rgb(0,220,150,0.2);
+}
+
+.stepIconActive {
+  border: 1px solid rgb(0,220,150,0.6);
+  background: transparent;
+  box-shadow: none;
+}
+
+.stepIconPending {
+  border: 1px solid rgb(0,220,150,0.15);
+  background: transparent;
+  box-shadow: none;
+}
+
+.stepLabel {
+  font-size: 0.75rem;
+  font-family: 'Space Mono', monospace;
+  margin-bottom: 4px;
+  transition: color 0.4s;
+}
+
+.stepLabelDone {
+  color: #e8f5f0;
+}
+
+.stepLabelActive {
+  color: #a0cfc0;
+}
+
+.stepLabelPending {
+  color: #2a4a40;
+}
+
+.stepBarBg {
+  height: 2px;
+  background: rgb(0,220,150,0.1);
+  border-radius: 1px;
+  overflow: hidden;
+}
+
+.stepBarFill {
+  height: 100%;
+  background: #00dc96;
+  border-radius: 1px;
+  transition: width 0.8s ease;
+  box-shadow: 0 0 8px #00dc96;
+}
+
+.resultBox {
+  border-radius: 3px;
+  padding: 14px 18px;
+  transition: all 0.5s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.resultBoxVerified {
+  background: rgb(0,220,150,0.08);
+  border: 1px solid rgb(0,220,150,0.4);
+}
+
+.resultBoxPending {
+  background: rgb(0,220,150,0.02);
+  border: 1px solid rgb(0,220,150,0.1);
+}
+
+.resultDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  transition: all 0.5s;
+}
+
+.resultDotVerified {
+  background: #00dc96;
+  box-shadow: 0 0 12px #00dc96;
+}
+
+.resultDotPending {
+  background: #1a3028;
+  box-shadow: none;
+}
+
+.resultText {
+  font-size: 0.75rem;
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  transition: color 0.5s;
+}
+
+.resultTextVerified {
+  color: #00dc96;
+}
+
+.resultTextPending {
+  color: #2a4a40;
+}
+
+.resultDetails {
+  color: #4a6b60;
+  font-size: 0.62rem;
+  margin-top: 3px;
+}
+
+.cornerAccent {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle at bottom right, rgb(0,220,150,0.12), transparent);
+  pointer-events: none;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}

@@ -1,0 +1,230 @@
+.proofstellNav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  transition: all 0.3s ease;
+  font-family: 'DM Mono', 'Courier New', monospace;
+}
+
+.proofstellNav.scrolled {
+  background: rgb(6, 10, 16, 0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgb(0, 220, 150, 0.12);
+  box-shadow: 0 4px 32px rgb(0, 0, 0, 0.4);
+}
+
+.proofstellNav.top {
+  background: transparent;
+}
+
+.navInner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navLogo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.logoMark {
+  width: 32px;
+  height: 32px;
+  border: 1.5px solid #00dc96;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.logoMark::before {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  background: rgb(0, 220, 150, 0.15);
+}
+
+.logoMarkInner {
+  width: 8px;
+  height: 8px;
+  background: #00dc96;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 0 10px #00dc96;
+}
+
+.logoText {
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #e8f5f0;
+  letter-spacing: 0.04em;
+}
+
+.logoText span {
+  color: #00dc96;
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  text-decoration: none;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: #5a8a7a;
+  transition: color 0.2s;
+  position: relative;
+  font-family: 'DM Mono', monospace;
+}
+
+.navLink:hover {
+  color: #e8f5f0;
+}
+
+.navLink.active {
+  color: #00dc96;
+}
+
+.navLink.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 16px;
+  right: 16px;
+  height: 1px;
+  background: #00dc96;
+  box-shadow: 0 0 6px #00dc96;
+}
+
+.navCta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btnConnect {
+  background: transparent;
+  border: 1px solid rgb(0, 220, 150, 0.4);
+  color: #00dc96;
+  padding: 8px 20px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btnConnect:hover {
+  background: rgb(0, 220, 150, 0.08);
+  border-color: #00dc96;
+  box-shadow: 0 0 16px rgb(0, 220, 150, 0.2);
+}
+
+.walletDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #00dc96;
+  box-shadow: 0 0 6px #00dc96;
+  animation: wallet-pulse 2s infinite;
+}
+
+@keyframes wallet-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.statusBar {
+  background: rgb(0, 220, 150, 0.06);
+  border-bottom: 1px solid rgb(0, 220, 150, 0.1);
+  padding: 5px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.statusItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.62rem;
+  color: #3a6a5a;
+  letter-spacing: 0.12em;
+  font-family: 'DM Mono', monospace;
+}
+
+.statusDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #00dc96;
+  box-shadow: 0 0 4px #00dc96;
+}
+
+@media (width <= 768px) {
+  .navLinks, .statusBar { display: none; }
+  .mobileMenuBtn { display: flex; }
+}
+
+.mobileMenuBtn {
+  display: none;
+  background: transparent;
+  border: 1px solid rgb(0, 220, 150, 0.3);
+  border-radius: 2px;
+  padding: 6px 10px;
+  cursor: pointer;
+  color: #00dc96;
+  font-size: 1rem;
+}
+
+.mobileMenu {
+  display: none;
+  flex-direction: column;
+  background: rgb(6, 10, 16, 0.98);
+  border-bottom: 1px solid rgb(0, 220, 150, 0.12);
+  padding: 16px 24px;
+  gap: 4px;
+}
+
+.mobileMenu.open {
+  display: flex;
+}
+
+.mobileLink {
+  display: block;
+  padding: 10px 0;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.8rem;
+  color: #5a8a7a;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  border-bottom: 1px solid rgb(0, 220, 150, 0.06);
+}
+
+.mobileLink:last-child { border-bottom: none; }
